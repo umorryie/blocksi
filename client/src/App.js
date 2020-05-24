@@ -3,6 +3,8 @@ import logo from "./logo.svg";
 import ozadje from "./images/ozadje.jpg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
+import Card from "./components/Card/Card";
+//import Cardcontainer from "./components/Cardcontainer/Cardcontainer";
 import Table from "./components/Table/Table";
 //import { browserHistory } from "react-router";
 import { withRouter } from "react-router";
@@ -22,6 +24,7 @@ import Contact from "./components/Contact/Contact";
 import Register from "./components/Register/Register";
 import Login from "./components/LogIn/Login";
 import Navbar from "./components/Navbar/Navbar";
+import Cardcontainer from "./components/Cardcontainer/Cardcontainer";
 library.add(faEnvelope, faKey, faCircle, faPlusCircle);
 const history = createBrowserHistory();
 export default class App extends Component {
@@ -285,6 +288,17 @@ export default class App extends Component {
         phoneNumber={el.phoneNumber}
       />
     ));
+    const cardkontejnr = aray.map((el, i) => (
+      <Card
+        windoww={this.window}
+        deleteFromContacts={this.deleteFromContacts}
+        key={i}
+        name={el.name}
+        address={el.address}
+        surrname={el.surrname}
+        phoneNumber={el.phoneNumber}
+      />
+    ));
 
     return (
       <Router history={history}>
@@ -335,22 +349,7 @@ export default class App extends Component {
               <div className="appcontainer1">
                 <div className="appcontainer">
                   {this.state.logged ? (
-                    <div>
-                      <div className="contactTable">
-                        <table id="contacts-table">
-                          <thead>
-                            <tr id="contacts-head">
-                              <th className="th naslovnice">NAME</th>
-                              <th className="th naslovnice">SURRNAME</th>
-                              <th className="th naslovnice">ADDRESS</th>
-                              <th className="th naslovnice">PHONE NUMBER</th>
-                              <th className="th naslovnice"></th>
-                            </tr>
-                          </thead>
-                          <tbody>{table}</tbody>
-                        </table>
-                      </div>
-                    </div>
+                    <div className="cardkontejnrgrid">{cardkontejnr}</div>
                   ) : (
                     ""
                   )}
