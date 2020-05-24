@@ -33,7 +33,6 @@ const Card = ({
 }) => {
   const lol = images.length;
   let stevec = i;
-  console.log(i, lol);
   if (stevec > lol - 1) {
     while (stevec > lol - 1) {
       stevec -= lol;

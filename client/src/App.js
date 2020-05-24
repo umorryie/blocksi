@@ -200,7 +200,6 @@ export default class App extends Component {
 
       body: JSON.stringify(object),
     }) */
-    console.log(object);
     fetch(`/login`, {
       method: "post",
       mode: "cors", // no-cors, *cors, same-origin
