@@ -293,6 +293,7 @@ export default class App extends Component {
         windoww={this.window}
         deleteFromContacts={this.deleteFromContacts}
         key={i}
+        i={i}
         name={el.name}
         address={el.address}
         surrname={el.surrname}

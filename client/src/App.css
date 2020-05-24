@@ -43,7 +43,7 @@
   margin: 20px;
   font-size: 2vh;
   color: rgb(219, 214, 214);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 .naslovnice {
   font-size: 3vh !important;
@@ -65,7 +65,7 @@
   text-align: center;
   font-size: 2vh;
   font-weight: 600;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Ubuntu", sans-serif;
   background-color: transparent;
 }
 .sredina {
@@ -164,7 +164,7 @@ a:hover {
   margin: 3px;
   font-size: 5vh;
   font-weight: 900;
-  font-family: cursive;
+  font-family: "Ubuntu", sans-serif;
 }
 .linky:hover {
   color: rgb(160, 100, 100);
@@ -416,7 +416,7 @@ iframe {
 .th2 {
   font-size: 17px;
 
-  font-family: sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 .th {
   font-size: 30px;
@@ -802,7 +802,6 @@ input.input100 {
   justify-content: center;
 }
 .slikaodUserja1 {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Coleporter.jpg") !important;
   height: 121px;
   width: 121px;
   display: flex;
@@ -839,7 +838,6 @@ input.input100 {
   align-items: center;
 }
 .slikaodUserja1 {
-  background-image: url("https://pmcdeadline2.files.wordpress.com/2019/08/billy-porter-dl-271-edit.jpg?crop=0px%2C2px%2C1000px%2C560px&resize=681%2C383") !important;
   height: 121px;
   background-position: center;
   width: 121px;

@@ -31,6 +31,15 @@ const Card = ({
   deleteFromContacts,
   windoww,
 }) => {
+  const lol = images.length;
+  let stevec = i;
+  console.log(i, lol);
+  if (stevec > lol - 1) {
+    while (stevec > lol - 1) {
+      stevec -= lol;
+    }
+  }
+
   return (
     <div className="zunanji">
       <div className="contactContainer1">
@@ -53,7 +62,10 @@ const Card = ({
           </div>
           <div className="absolutno">
             <div className="imageOfuser1">
-              <div className="slikaodUserja1"></div>
+              <div
+                className="slikaodUserja1"
+                style={{ backgroundImage: `url(${images[stevec]})` }}
+              ></div>
             </div>
             <div className="textContainer1234444">
               <div className="nameContainer9">
