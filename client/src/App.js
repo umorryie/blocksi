@@ -351,6 +351,11 @@ export default class App extends Component {
                   {this.state.logged ? (
                     <div className="cardkontejnrgrid">{cardkontejnr}</div>
                   ) : (
+                    <div className="glavno3"></div>
+                  )}
+                  {this.state.logged && aray.length === 0 ? (
+                    <div className="glavno50"></div>
+                  ) : (
                     ""
                   )}
                 </div>

@@ -7,10 +7,10 @@ import { createBrowserHistory } from "history";
 export const browserHistory = createBrowserHistory();
 ReactDOM.render(
   <React.StrictMode>
-    {" "}
     <div className="glavno">
       <App />
     </div>
+    <div className="glavno2"></div>
   </React.StrictMode>,
   document.getElementById("root")
 );
