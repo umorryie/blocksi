@@ -134,26 +134,31 @@ export default class App extends Component {
       email: registeremail,
       password: registerpassword,
     };
-    fetch("/users", {
-      method: "POST",
-      mode: "cors", // no-cors, *cors, same-origin
-      headers: {
-        "Content-Type": "application/json",
-      },
+    if (registerpassword.length < 6) {
+      alert("Password to short !");
+      return;
+    } else {
+      fetch("/users", {
+        method: "POST",
+        mode: "cors", // no-cors, *cors, same-origin
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-      body: JSON.stringify(object),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data === "good") {
-          this.changeEmailOn(registeremail);
-          this.changeLogged();
-          this.changeClickRegister();
-        } else {
-          alert("Something went wrong. Register declined");
-        }
+        body: JSON.stringify(object),
       })
-      .catch((er) => console.log(er));
+        .then((res) => res.json())
+        .then((data) => {
+          if (data === "good") {
+            this.changeEmailOn(registeremail);
+            this.changeLogged();
+            this.changeClickRegister();
+          } else {
+            alert("Something went wrong. Register declined");
+          }
+        })
+        .catch((er) => console.log(er));
+    }
   };
   onTextChange = (e) => {
     const value = e.target.value;

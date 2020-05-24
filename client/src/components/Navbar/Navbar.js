@@ -30,7 +30,9 @@ const Navbar = ({
                 }}
                 className="linavbar"
               >
-                LOG OUT
+                <Link className="linky" to="/">
+                  LOG OUT
+                </Link>
               </li>
             ) : (
               <li onClick={changeclickLog} className="linavbar">
