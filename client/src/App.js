@@ -188,7 +188,7 @@ export default class App extends Component {
     const { passwordforLogin, emailforLogin } = this.state;
     const object = { password: passwordforLogin };
     const objectNew = { password: passwordforLogin, email: emailforLogin };
-    fetch(`/checkLoginRegular/${emailforLogin}`, {
+    /*fetch(`/checkLoginRegular/${emailforLogin}`, {
       method: "post",
       mode: "cors", // no-cors, *cors, same-origin
       headers: {
@@ -196,9 +196,8 @@ export default class App extends Component {
       },
 
       body: JSON.stringify(object),
-    }) /*
-    const { passwordforLogin, emailforLogin } = this.state;
-    const object = { password: passwordforLogin, email: emailforLogin };
+    }) */
+    console.log(object);
     fetch(`/login`, {
       method: "post",
       mode: "cors", // no-cors, *cors, same-origin
@@ -206,8 +205,8 @@ export default class App extends Component {
         "Content-Type": "application/json",
       },
 
-      body: JSON.stringify(object),
-    })*/
+      body: JSON.stringify(objectNew),
+    })
       .then((re) => re.json())
       .then((data) => {
         if (data === true) {

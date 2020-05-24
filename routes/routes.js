@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-
+const bcryptjs = require("bcryptjs");
+const bcrypt = require("bcrypt");
+const saltRounds = 9;
 const Contact = require("../products/Producs");
 const User = require("../products/User");
 const users = require("../productsListForDataBase");
@@ -113,14 +114,27 @@ router.post("/users", (req, res) => {
     res.status(400).json("Not all parameters are  given.");
     return;
   } else {
-    let objekt = { name, email, password, contacts };
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+      if (err) {
+        res.status(400).json(err);
+      }
+      let objekt = { name, email, password: hash, contacts };
+
+      const novi = User(objekt);
+      console.log(objekt);
+      novi
+        .save()
+        .then((e) => res.json("good"))
+        .catch((err) => res.status(400).json(err));
+    });
+    /*let objekt = { name, email, password, contacts };
 
     const novi = User(objekt);
     console.log(objekt);
     novi
       .save()
       .then((e) => res.json("good"))
-      .catch((err) => res.status(400).json(err));
+      .catch((err) => res.status(400).json(err));*/
   }
 });
 // add contact to user with certain id
@@ -349,18 +363,21 @@ router.post("/checkLoginRegular/:email", async (req, res) => {
 
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
+  console.log(email, password);
   try {
     User.findOne({ email }).then((el) => {
       if (!el) {
         res.status(404).json("Error, no user");
         return;
+      } else {
+        bcrypt
+          .compare(password, el.password)
+          .then((ress) => {
+            console.log(el.password, password);
+            return ress ? res.json(true) : res.status(400).json(false);
+          })
+          .catch((e) => res.status(400).json(e));
       }
-      const preveri = bcrypt
-        .compare(password, el.password)
-        .then((ress) => {
-          return ress ? res.json(true) : res.status(400).json(false);
-        })
-        .catch((e) => res.status(400).json(e));
     });
   } catch (e) {
     res.status(404).json(e);
